@@ -1,0 +1,10 @@
+---js
+const eleventyNavigation = {
+	key: "thoughts",
+	order: 3
+};
+---
+<h1>Archive — Thoughts</h1>
+
+{% set postslist = collections.thoughts %}
+{% include "postslist.njk" %}

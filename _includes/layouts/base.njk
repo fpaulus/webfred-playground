@@ -8,13 +8,13 @@
 		<link rel="alternate" href="feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
 
 		{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
-		{#- <meta name="generator" content="{{ eleventy.generator }}"> #}
+		<meta name="generator" content="{{ eleventy.generator }}">
 
 		{#-
 		Plain-text bundles are provided via the `eleventy-plugin-bundle` plugin:
 		1. CSS:
 			* Add to a per-page bundle using `{% css %}{% endcss %}`
-			* Retrieve bundle content using `{% getBundle "css" %}` or `{% getBundleFileUrl "css" %}`
+			* Retrieve bundle content using `{% getBundle "css" %}` or `{% ßgetBundleFileUrl "css" %}`
 		2. Or for JavaScript:
 			* Add to a per-page bundle using `{% js %}{% endjs %}`
 			* Retrieve via `{% getBundle "js" %}` or `{% getBundleFileUrl "js" %}`
@@ -39,29 +39,43 @@
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
-		<header>
-			<a href="/" class="home-link">{{ metadata.title }}</a>
+			<header>
+				<div class="nav-home">
+					<a href="/" class="home-link">{{ metadata.title }}</a>
+				</div>
 
-			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-			<nav>
-				<h2 class="visually-hidden">Top level navigation menu</h2>
-				<ul class="nav">
-				{%- for entry in collections.all | eleventyNavigation %}
-					<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
-				{%- endfor %}
-				</ul>
-			</nav>
-		</header>
+					{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+					<nav>
+						<h2 class="visually-hidden">Top level navigation menu</h2>
+						<div class="header-nav">
+							<ul class="nav">
+							{%- for entry in collections.all | eleventyNavigation %}
+								<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
+							{%- endfor %}
+							</ul>
+						</div>
+					</nav>
+			</header>
 
-		<main id="skip">
-			<heading-anchors>
-				{{ content | safe }}
-			</heading-anchors>
-		</main>
+			<main id="skip">
+				<heading-anchors>
+					{{ content | safe }}
+				</heading-anchors>
+			</main>
 
-		<footer>
-			<p><em>Built with <a href="https://www.11ty.dev/">{{ eleventy.generator }}</a></em></p>
-		</footer>
+			<footer>
+				<p>Copyright &copy; 1997-2024 Frederik Paulus.</p>
+
+				<div class="footer-nav">
+					<ul class="nav">
+						<li class="nav-item"><a href="https://mastodon.social/@fpaulus" rel="me">Mastodon</a></li>
+						<li class="nav-item"><a href="https://bsky.app/profile/fpaulus.bsky.social">Bluesky</a></li>
+						<li class="nav-item"><a href="https://www.linkedin.com/in/frederikpaulus/">LinkedIn</a></li>
+						<li class="nav-item"><a href="/colophon/">Colophon</a></li>
+					</ul>
+				</div>
+				<p><em>Built with <a href="https://www.11ty.dev/">{{ eleventy.generator }}</a></em></p>
+			</footer>
 
 		<!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
 		<script type="module" src="{% getBundleFileUrl "js" %}"></script>

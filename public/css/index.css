@@ -9,10 +9,11 @@
 	--color-gray-20: #e0e0e0;
 	--color-gray-50: #C0C0C0;
 	--color-gray-90: #333;
+	--color-gray-80: #666;
 
-	--background-color: #fff;
+	--background-color: #fcfcfc;
 
-	--text-color: var(--color-gray-90);
+	--text-color: var(--color-gray-80);
 	--text-color-link: #082840;
 	--text-color-link-active: #5f2b48;
 	--text-color-link-visited: #17050F;
@@ -25,6 +26,7 @@
 		--color-gray-20: #e0e0e0;
 		--color-gray-50: #C0C0C0;
 		--color-gray-90: #dad8d8;
+		--color-gray-80: #dad8d8;
 
 		/* --text-color is assigned to --color-gray-_ above */
 		--text-color-link: #1493fb;
@@ -50,15 +52,18 @@ body {
 	padding: 0;
 	margin: 0 auto;
 	font-family: var(--font-family);
+	font-size: 105%;
 	color: var(--text-color);
 	background-color: var(--background-color);
 }
 html {
 	overflow-y: scroll;
 }
+
 body {
-	max-width: 40em;
+	max-width: 44em;
 }
+
 
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
 .visually-hidden {
@@ -96,6 +101,7 @@ a[href]:active {
 main,
 footer {
 	padding: 1rem;
+	margin-top: 9rem;
 }
 main :first-child {
 	margin-top: 0;
@@ -115,8 +121,10 @@ header:after {
 	justify-content: space-between;
 	gap: .5em 1em;
 	list-style: "";
+	margin-top: 10rem;
 	border-top: 1px dashed var(--color-gray-20);
 	padding: 1em 0;
+	font-size: 0.8rem;
 }
 .links-nextprev > * {
 	flex-grow: 1;
@@ -164,7 +172,9 @@ header {
 	flex-wrap: wrap;
 	align-items: center;
 	padding: 1em;
+	width: 100%;
 }
+
 .home-link {
 	font-size: 1em; /* 16px /16 */
 	font-weight: 700;
@@ -196,7 +206,7 @@ header {
 .postlist {
 	list-style: none;
 	padding: 0;
-	padding-left: 1.5rem;
+	ßpadding-left: 1.5rem;
 }
 .postlist-item {
 	display: flex;
@@ -222,7 +232,7 @@ header {
 	word-spacing: -0.5px;
 }
 .postlist-link {
-	font-size: 1.1875em; /* 19px /16 */
+	font-size: 1rem; /* 19px /16 */
 	font-weight: 700;
 	flex-basis: calc(100% - 1.5rem);
 	padding-left: .25em;
@@ -255,8 +265,74 @@ header {
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	font-size: 0.8rem;
 }
 .post-metadata time {
 	margin-right: 1em;
 }
 
+h1, h2, h3, h4, h5 {
+	font-size: 1em;
+	font-weight: normal;
+	font-style: normal;
+}
+
+h1 {
+/*	font-family: Helvetica, Arial, sans-serif; */
+	font-size: 2.4em;
+	font-weight: 300;
+	margin-top: 0.5em;
+	margin-bottom: 1.5em;
+}
+
+h2 {
+/*	font-family: Helvetica, Arial, sans-serif; */
+	font-size: 1.25em;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+}
+
+h3 {
+	font-size: 1em;
+	font-weight: bold;
+	margin-bottom: 0;
+	margin-top: 1.5em;
+}
+
+img {
+	width: 98%;
+	height: auto;
+}
+
+footer {
+	text-color: var(color-gray-50);
+	font-size: 0.8rem;
+	text-align: right;
+}
+
+.footer-nav {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.header-nav {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.newsletter-container {
+		padding: 1.5rem;
+		background: #f8f8f8;
+		border-radius: 8px;
+		margin: 2rem 0;
+}
+
+.newsletter-container h3 {
+		margin-top: 0;
+}
+
+.newsletter-footer {
+		font-size: 0.9em;
+		color: #666;
+		margin-top: 1rem;
+}
